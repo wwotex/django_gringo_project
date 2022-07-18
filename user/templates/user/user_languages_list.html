@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html>
-    <body>
-        <h1>USER PAGE</h1>
-        <h3>languages: </h3>
-        <ul>
-            {% for elem in langs %}
-            <li>{{elem.language_name}}</li>
-            {% endfor %}
-        </ul>
-    </body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+
+<h1>USER PAGE</h1>
+<h3>languages: </h3>
+
+{% for elem in langs %}
+   <a class="btn btn-primary" href="{% url 'word.list' elem.language_name %}"> {{elem.language_name}} </a>
+{% endfor %}
+
+
+{% endblock %}

@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<head>
-    <style>
-        table, th, td {
-          border:1px solid black;
-        }
-    </style>
-</head>
-<html>
-    <h1>USER {{lang_name}} PAGE</h1>
-    <h3>You learned already: </h3>
-    <table style="width:100%">
-        <tr><th>word</th> <th>translation</th> <th>date added</th></tr>
-        {% for elem in word_list %}
-        <tr><th>{{elem.word}}</th> <th>{{elem.translation}}</th> <th>{{elem.time_created}}</th></tr>
-        {% endfor %}
-    </table>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<h1 class="my-5">USER {{lang_name}} PAGE</h1>
+<a href="{% url 'language.list' %}" class="btn btn-primary">BACK</a>
+<h3>You learned already: </h3>
+<table>
+    <tr><th>word</th> <th>translation</th> <th>date added</th></tr>
+    {% for elem in word_list %}
+    <tr><td>{{elem.word}}</td> <td>{{elem.translation}}</td> <td>{{elem.time_created}}</td></tr>
+    {% endfor %}
+</table>
+{% endblock %}
