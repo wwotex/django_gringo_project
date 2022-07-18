@@ -16,5 +16,11 @@ class LanguageWordsView(DetailView):
     model = UserLanguages
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['lang_name'] = context['userlanguages'].name.upper()
+        
+        lang_name = context['userlanguages'].language_name
+        context['lang_name'] = lang_name.upper()
+
+        list_words = LanguageWords.objects.filter(language_name=lang_name)
+        context['word_list'] = list_words
+        
         return context
