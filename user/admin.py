@@ -5,8 +5,8 @@ from . import models
 class UserLanguagesAdmin(admin.ModelAdmin):
     list_display = ('name', 'n_words_learned')
 
-class LanguageWordAdmin(admin.ModelAdmin):
+class LanguageWordsAdmin(admin.ModelAdmin):
     list_display = ('word', 'translation')
 
 admin.site.register(models.UserLanguages, UserLanguagesAdmin)
-admin.site.register(models.LanguageWordList, LanguageWordAdmin)
+admin.site.register(models.LanguageWords, LanguageWordsAdmin)
